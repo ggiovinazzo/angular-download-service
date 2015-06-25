@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     del = require('del'),
-    pkg = require('./package.json');
+    pkg = require('./package.json'),
+    rename = require("gulp-rename");
 
 gulp.task('build', function () {
     return gulp.src('./src/*.js')
