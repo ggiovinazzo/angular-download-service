@@ -1,9 +1,11 @@
 # angular-download-service
-Angular service and directive for file download
+Angular service for file download
+
+[![Build Status](https://api.travis-ci.org/ggiovinazzo/angular-download-service?branch=0.1.0-a)](https://travis-ci.org/ggiovinazzo/angular-download-service)
 
 The function for download is the same used in [ui-grid](https://github.com/angular-ui/ng-grid/blob/master/src/features/exporter/js/exporter.js#L877) library, export module
 
 The library is in an early stage next steps are:
-# Write datail usage doc
+# Write detailed usage doc
 # Write tests
 

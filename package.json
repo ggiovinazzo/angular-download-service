@@ -1,0 +1,30 @@
+{
+  "name": "angular-download-service",
+  "version": "3.0.0-rc.22",
+  "description": "__Contributors:__",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ggiovinazzo/angular-download-service.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "download",
+    "file download"
+  ],
+  "author": "Gianluca Giovinazzo",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp-rename": "~1.2.2",
+    "gulp-concat": "~2.5.2",
+    "del": "~1.2.0",
+    "gulp-uglify": "~1.2.0",
+    "gulp-jshint": "~1.11.0"
+  }
+}
