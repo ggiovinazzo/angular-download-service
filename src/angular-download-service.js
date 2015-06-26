@@ -77,13 +77,13 @@
             //html5 A[download]
             if ('download' in a) {
                 var blob = new Blob(
-                    [content], { type: mimeType }
+                    [content], { type: this.strMimeType }
                 );
                 rawFile = URL.createObjectURL(blob);
                 a.setAttribute('download', fileName);
             } 
             else {
-                rawFile = 'data:' + mimeType + ',' + encodeURIComponent(content);
+                rawFile = 'data:' + this.strMimeType + ',' + encodeURIComponent(content);
                 a.setAttribute('target', '_blank');
             }
 
@@ -105,7 +105,7 @@
         }
     }
     
-    app.factory('downloadService', 
+    app.factory('fileDownloadService', 
         function(){
             return new FileDownload();
         }
