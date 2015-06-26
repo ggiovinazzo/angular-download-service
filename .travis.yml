@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+    - '0.11'
+    - '0.10'
+before_install:
+    - npm install -g gulp
+    - npm link gulp
+script:
+    - gulp build
+deploy:
+  provider: releases
+  api_key:
+    secure: GEo00/B1iarSzBKg6wViglZjCPsJRiPEB46UQE09wco3aRCGMPXgShpsa3SMGTL7dqKrKybjcEE9z39ruLsLn/Ambg0YnlLTVQzySVoxFpG5JtXRSzT5KRDeLXUI1CJ7ElDnO1O0NEiR/BqsibEDolJ4mDD8eI4EDpMJU5B5xYfpA9iCfDEu/oZUtfW1nB62htjrMCQ9Ah/ILhO8rZoBcwjjlYBtaUPBGnRONl50YzM304X+zdmXbwF2WmUNzbColEF9fr6Wuh3z9OeQ0bbqu6GAsUmOC8lMt8gvtpNk+eOu1X5mIcbAiYG1ehY62ulquHsFz5t2Ku+MZganwZPrgLQY5HsQD2kBIATNVLgL4g+MmzPAHog3jq+4TMigxigVYSSw7nMuwhojz2jEG+xcXQRMPLXijDVWme6YLKQE2BqkD9ffDh0E8coo+GeC5Vvewn3U5zZ9wIZ4ByzonHC5Q0y7fQvrQL6/QIrOc+OfunyfbPLZX/LBDXNt8uQ+BB+SrPZm9Xz2IjE4yi7XQf6jWVGFML1Qcs0OPyRV04Bp27KOiXuEY+ybeANOEU2N+nB4Dex3UIG+uuYZGDLZRdao9vlkiI+HkYNyhAParzOtODcX1bk+N4fEFqUyn2Q7V5BKG8TSYFgbvvrXo5xpgwBaRH/JoppEp16fJaqWatfUs4E=
+  file: 
+    - dist/*
+    - bower.json
+  on:
+    repo: ggiovinazzo/angular-download-service-bower
+    branch: 0.1.0-a
+    
+env:
+  global:
+      - secure: m7k0qN4PCIFTRsppIhSA39hrN0/CTuCZrA1AaOZG/ldJhRjLuLDIJsEFYtphje2OzNap9ljB01lD0PvYVIRikKKz0YO1gI0Fnfsj3RM1H0BoPcVXkBfvk/jbNW+3sCJSAxbE23TA6DLwJtredFc09vlIl6SVOgsbljZpwPPSFRoF28RIYUI8Q4+o3QfooDYEQgSioJQbC/1KH05lLZLFA0aivzRJw8BDXxyMvHVvmFu3zynG9srouyoVoHUcQR5toq9oP3jAV1aHrEQRQkCCvQRXP6eFQ8skJFY0/Su+BpzgBSAXEDCHsCunstnVhG8EbnCll66D1CBWcp8QM4COMTGzo0xoPEyW9mp/8hVuMllpdrFRB9Iif/sVbu3PWYZxNKsoUcUl63IxgpGLtzJo5pakYlUbZuhcyjMREsEgHueayNOnss9fd4sJ/84oc2zvYnDyRq4ytnh+zZqPy4fd8Qy6oiVO5VJ1OjCVE73VNZ5JSA8XT7ASTn/U52CmJNKA6aI3oXVOLeYjOXO2HCT90G+PFScF09C2MkIwdWSOqcy+UFwKFaSp08IhxMY44l4vAtMg/xuoU76TMs/XVaGLSpBM0nR1uK1KTfzWccDeChZzIoL55zVVUGX3XaeruYabSyY3DZD71l80lzbUkg5MUzpCF9J6Nz4MacXtky/9MuU=
+      - secure: S+39v0cUtWSf5JmO0dL5w2CSKSOZZS2OxcLbKzqbB4om/fpP5KtNrGnwMFmm626wES1HDeapVVW6zD9kxLUFBe+XwwnWSW3DY/MuXxb+yL8mQZRCQ6DpWaBOq0xWnk1iEw7oQ9x1tUBHDkRPKuc7A3Y3Kfq++9zj1+6eSo2z9jVhhJxnzf+N6ryqEGfN4o4G5Il8KdOQMyIj8Z+bz6SZbj8UGoDz5Nz/CYXmzDePcn3k1tF85RVb7CwT1mMtsiZrInQJ8qbWzoKAoaNqr17QPzI3vOW0hvdD1hRcrhceUMcOVBbIFLURHiKD7dm30QsANgNwryqmYmCaVd1lymbkBmMdpw+5cJ8T7d44qFrQh8HBaoMbTIn31vMdWGw2l6tVh2coZIKCVfN7NC7K4kWIp7Z6gYTY0F23GsdETMdDzUol8xli+bgBWG7ZnjXuWldXHvcjNARSrBE/MLYZK32qI4t5xMQJFosIs8MfvnUvs5WpHOgNxOO/hSzJQQM2AxdTPMJCNKEWOJVSBfstX8p5A6bkuw2tStYNY60a+izrkWrVcWimK50dasHNXr5ok2ET4fC7YyzVvJdv5Ql/Yq1+EoqKSWh7TZz9UzpVeAzAFnS1bZId8ixP8TMb15hGJ8zfHyhjCozr5F6pglDYxpllx6gDkWeYr84OuGbXwEjzItA=
+addons:
+  sauce_connect: true
