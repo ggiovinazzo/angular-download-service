@@ -63,7 +63,7 @@ gulp.task('deploy', ['git-deploy'], function () {
         'git remote add origin ' + config.git,
         'git tag -a v' + pkg.version + '-build-' + options.build + ' -m "Travis CI build: ' + options.build + '"',
         'git add .',
-        'git push origin master --tags'
+        'git push origin master'
       ])
     );
     
