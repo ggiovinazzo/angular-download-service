@@ -9,7 +9,7 @@ script:
   - gulp build
     
 after_success:
-  - gulp deploy -apikey $GITAPIKEY -build $TRAVIS_BUILD_NUMBER
+  - gulp deploy --apikey=$GITAPIKEY --build=$TRAVIS_BUILD_NUMBER
     
 env:
   global:

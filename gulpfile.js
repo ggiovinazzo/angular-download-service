@@ -13,7 +13,6 @@ var argOptions = {
 };
 
 var options = minimist(process.argv.slice(2), argOptions);
-
 var config = {
   buildFolder: './build',
   deploy: [
@@ -58,6 +57,8 @@ gulp.task('deploy', ['git-deploy'], function () {
     return gulp.src('')
     .pipe(
       shell([
+        'git config --global user.email "builds@travis-ci.com"',
+        'git config --global user.name "Travis CI"',
         'git remote rm origin',
         'git remote add origin ' + config.git,
         'git tag v' + pkg.version + '-build-' + options.build + ' -a -m "Travis CI build: ' + options.build + '"',
