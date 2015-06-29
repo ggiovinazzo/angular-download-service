@@ -8,27 +8,8 @@ before_install:
 script:
   - gulp build
     
-before_deploy:
-  - git config --global user.email "builds@travis-ci.com"
-  - git config --global user.name "Travis CI"
-  - export GIT_TAG=$TRAVIS_BRANCH-v0.1.$TRAVIS_BUILD_NUMBER
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://$GITAPIKEY@github.com/ggiovinazzo/angular-download-service-bower --tags
-  - ls -R    
-    
-deploy:
-  skip_cleanup: true
-  provider: releases
-  api_key: $GITAPIKEY
-  file: 
-    - dist/*
-    - bower.json
-  on:
-    tags: false
-    all_branches: true
-  branches:
-    except:
-      - /^*-v[0-9]/
+after_success:
+  - gulp deploy -apikey $GITAPIKEY -build $TRAVIS_BUILD_NUMBER
     
 env:
   global:
@@ -37,4 +18,4 @@ env:
     - secure: MyzpTHzV0OtcUtL/RkNKls9Nk+SGcapq3o5+5xNtwkcu+sM7jm9XOg5pmxUYuNlfqE7pvbnDiNFh/ka0UMI96OnSARjuv3LxRDFKmXtd48utjvxiLt31kPPcSM7cIn5lX423yuZUxlJX7BP4dWr4fs5b1zTweSkUSl0CtFk0O+BzH9JPT02bldqXT/byZiruKyDU94hQ7Cwp3ePwd3HyyLPb8Loqi6BKKbLmqKlcFfFTaQPG9EuAtUjL6yRVt46NokH/UfZWr9xDML/x4S4WwhYBVIoxKYl7Ur7UVNJUOTD5cGodQnl7FILOhJuGp+jgwZk2Z2evP7XlYY2KQfPYucnw8dxTNMYiAeT/6IVLAxtbMJ3dSkY+KzD/iReGSUTnxHD06j0cuwEfa9WBZCV8ylW4X/SW2ouP5I1+Sbk2n5QhJH+j9fN8YZ1E27hGrazvdw6rX43xuZhTUWuC0FrS9h5x83bg9QSWkGSjRWnueOEldLL6e6jv/prlqcSLyUBIDEIdnWUdn9bTzihwxuC+1Ba4Mf1iQrWyd9oZElRAXkJvyWJPaVy9YTnLCImNSyAyuZDchA5rMc3n9soafDio1Ws18w0gVVvXgbOhqhu8bj4Zvyh3eUqwELsUyCi9trAVpmGOHxfmtAJgRR/+sr+Xe6i7neAS9hssr5UGguVpcTs=
 
 addons:
-  sauce_connect: true
+  sauce_connect: false
