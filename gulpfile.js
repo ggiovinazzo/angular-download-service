@@ -61,8 +61,9 @@ gulp.task('deploy', ['git-deploy'], function () {
         'git config --global user.name "Travis CI"',
         'git remote rm origin',
         'git remote add origin ' + config.git,
-        'git tag -a v' + pkg.version + '-build-' + options.build + ' -m "Travis CI build: ' + options.build + '"',
-        'git add .',
+        'git add . --verbose',
+        'git commit --verbose -m "Build version: v' + pkg.version + '-build-' + options.build + '"',
+        'git tag -f -a v' + pkg.version + '-build-' + options.build + ' -m "Travis CI build: ' + options.build + '"',
         'git push origin --tags',
         'git push origin master'
       ])
