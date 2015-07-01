@@ -3,6 +3,7 @@
   "version": "0.1.0-a",
   "author": "GGiovinazzo",
   "description": "Angular service for file download",
+  "license": "MIT",
   "contributors": [
     {
       "name": "Gianluca Giovinazzo",

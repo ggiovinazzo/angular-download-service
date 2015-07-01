@@ -31,30 +31,30 @@ gulp.task('build', function () {
     .pipe(gulp.dest(config.buildFolder));
 });
 
-gulp.task('clean-deploy', function(cb) {
+gulp.task('clean-deploy', function (cb) {
   del([pkg.config.deployFolder], cb);
 });
 
-gulp.task('clone-deploy', ['clean-deploy'], function(){
+gulp.task('clone-deploy', ['clean-deploy'], function () {
   return gulp.src('')
     .pipe(
       shell(['git clone https://' + pkg.config.deploy])
     );
 });
 
-gulp.task('copy-deploy', ['clone-deploy'], function(){
+gulp.task('copy-deploy', ['clone-deploy'], function () {
   return gulp.src(config.deploy)
     .pipe(
       gulp.dest(pkg.config.deployFolder)
     );
 });
 
-gulp.task('git-deploy', ['copy-deploy'], function(){
+gulp.task('git-deploy', ['copy-deploy'], function () {
   process.chdir(pkg.config.deployFolder)
 });
 
-gulp.task('deploy', ['git-deploy'], function () { 
-    return gulp.src('')
+gulp.task('deploy', ['git-deploy'], function () {
+  return gulp.src('')
     .pipe(
       shell([
         'git config --global user.email "builds@travis-ci.com"',
@@ -68,5 +68,5 @@ gulp.task('deploy', ['git-deploy'], function () {
         'git push origin master'
       ])
     );
-    
+
 });
