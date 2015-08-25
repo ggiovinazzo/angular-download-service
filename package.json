@@ -1,6 +1,6 @@
 {
   "name": "angular-download-service",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0",
   "description": "__Contributors:__",
   "config": {
     "deploy": "github.com/ggiovinazzo/angular-download-service-bower.git",
